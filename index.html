@@ -2,43 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anatomy of a Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>ANATOMY OF A WEBSITE</h1>
-    <hr>
-    <p>Understanding How the Web Works</p>
-</header>
-
-<div class="stack-container">
+    <header>
+        <h1>Anatomy of a Website</h1>
+        <p>Understanding how modern websites are built and deployed</p>
+    </header>
 
     <section class="card">
-        <h2>HTML � Structure</h2>
-        <p>Defines layout and content.</p>
+        <h2>HTML — Structure</h2>
+        <p>
+            HTML defines the structure of a website. It creates headings, paragraphs, images, and buttons.
+            It acts as the skeleton of the webpage.
+        </p>
     </section>
 
     <section class="card">
-        <h2>CSS � Styling</h2>
-        <p>Controls design and appearance.</p>
+        <h2>CSS — Styling</h2>
+        <p>
+            CSS controls the design and layout. It manages colors, spacing, positioning,
+            and makes the website visually appealing.
+        </p>
     </section>
 
     <section class="card">
-        <h2>JavaScript � Interaction</h2>
-        <p>Makes websites dynamic.</p>
-        <button onclick="showMessage()">Click to Interact</button>
-        <p id="hiddenText"></p>
+        <h2>JavaScript — Interaction</h2>
+        <p>
+            JavaScript adds behavior to websites. It enables dynamic content,
+            user interaction, and DOM manipulation.
+        </p>
+
+        <button onclick="toggleMessage()">Demonstrate JavaScript</button>
+        <p id="demoMessage" class="hidden">
+            This message was revealed using JavaScript DOM manipulation.
+        </p>
     </section>
 
-</div>
+    <section class="workflow">
+        <h2>Development Workflow</h2>
+        <div class="flow">
+            <span>HTML</span>
+            <span>→</span>
+            <span>CSS</span>
+            <span>→</span>
+            <span>JavaScript</span>
+            <span>→</span>
+            <span>Deployment</span>
+        </div>
+    </section>
 
-<footer>
-    Hosted using GitHub Pages
-</footer>
+    <section class="card">
+        <h2>Deployment — Hosting & Accessibility</h2>
+        <p>
+            After development, websites are deployed to servers so users can access them globally.
+            This site is deployed using GitHub Pages.
+        </p>
+    </section>
 
-<script src="script.js"></script>
+    <footer>
+        <p>Created by Your Name | Hosted on GitHub Pages</p>
+    </footer>
+
+<script>
+function toggleMessage() {
+    const message = document.getElementById("demoMessage");
+    message.classList.toggle("hidden");
+}
+</script>
+<script>
+function toggleMessage() {
+    const message = document.getElementById("demoMessage");
+    message.classList.toggle("hidden");
+}
+
+// Fade-in on scroll
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+cards.forEach(card => {
+    observer.observe(card);
+});
+</script>
 </body>
 </html>
